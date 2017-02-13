@@ -1,7 +1,7 @@
 # h5-PickerView
 原生Javascript实现的移动端多级选择器，可通过配置实现多级联动。压缩后JS文件只有3.96KB。
 
-### 效果图：
+## 效果图：
 ##### 常用的多级联动选择：
 ![](http://okzuu09cn.bkt.clouddn.com/1.gif)
 
@@ -13,7 +13,7 @@
 
 -------------
 
-### 使用：
+## 使用：
 在页面中引入**pickerView.css**和**pickerView.js**
 #####初始化：
 ```
