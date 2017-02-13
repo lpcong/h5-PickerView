@@ -58,9 +58,9 @@ col是选择器每一列的配置参数，具体格式如下：
 * values 顺序返回的全部选中值数组
 
 #####onCancel
-选择器取消按钮被点击后触发的回调函数，无传参
+选择器取消按钮被点击后触发的回调函数，无传参。
 
-#####pickerView.prototype.updateCol(colIndex,colContent)
+#####pickerView.prototype.updateCol(colIndex, colContent)
 是个可选的更新列内容的函数。其中：
 * colIndex 需要更新的列下标，从0开始计算
 * colContent 被替换的列的内容，格式可以参照上面的cols参数，例子如下：
@@ -71,6 +71,6 @@ pickerView.updateCol(2,{
         values: ['南山','宝安','福田','罗湖','龙岗','盐田']
 })；
 ```
-上面是给新建的pickerView对象更新第三列的选择内容。
+上面例子是给新建的pickerView对象更新第三列的选择内容。
 
 具体的完整demo，可以参照源码的demo1/2/3.html。
