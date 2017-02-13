@@ -15,23 +15,23 @@
 
 ## 使用：
 在页面中引入**pickerView.css**和**pickerView.js**
-#####初始化：
+####初始化：
 ```
 var pickerView = new PickerView(opts);
 ```
 opts是可选的配置参数，具体如下：
 
-**selector：**
+#####selector：
 必填项，是触发选择器的dom元素id值。
 
-**title**
+#####title
 选择器的标题。
 
-**col**
+#####col
 col是选择器每一列的配置参数，具体格式如下：
 ```
 {
-	cols:[
+    cols:[
             {
                 values: ['广东']
             },{
@@ -46,21 +46,21 @@ col是选择器每一列的配置参数，具体格式如下：
 ```
 其中values数组里是参数列的每一个值，currVal是设置的默认当前项，必须是values数组里面的某一项值，可选，没设置默认第一项为当前项。另外，cols里面配置的对象项数，决定了选择器显示的列数。
 
-**onOptionSelected**
+#####onOptionSelected
 选择器中某一列的项被选中后触发的回调函数，会回传三个参数：
 * colIndex 被触发选中的列下标，从0开始计算
 * selectedIndex 被触发选中的项下标，从0开始计算
 * selectedValue 被触发选中的项的值
 通过onOptionSelected结合pickerView.prototype.updateCol函数（下面介绍该函数），可以实现多级联动。
 
-**onConfirm**
+#####onConfirm
 选择器确定按钮被点击后触发的回调函数，会回传一个参数：
 * values 顺序返回的全部选中值数组
 
-**onCancel**
+#####onCancel
 选择器取消按钮被点击后触发的回调函数，无传参
 
-**pickerView.prototype.updateCol(colIndex,colContent)**
+#####pickerView.prototype.updateCol(colIndex,colContent)
 是个可选的更新列内容的函数。其中：
 * colIndex 需要更新的列下标，从0开始计算
 * colContent 被替换的列的内容，格式可以参照上面的cols参数，例子如下：
