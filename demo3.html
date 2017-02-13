@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <title>多选择器</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="dist/css/pickerView.css" />
+    <style type="text/css">
+		#bindPicker1,#bindPicker2{font-size: 16px;text-align: center;padding-top: 20px;}
+    </style>
+</head>
+<body>
+	<div id="bindPicker1">点击选择1</div>
+    <br><br>
+    <div id="bindPicker2">点击选择2</div>
+	<script type="text/javascript" src="dist/js/pickerView-min.js"></script>
+	<script type="text/javascript">
+        /*
+         * @param selector 绑定出发选择器的元素id
+         * @param title 选择器标题
+         * @param cols 选择器内容
+         * @param onOptionSelected 某列中某项被选中的回调函数
+         *  colIndex,selectedIndex,selectedValue分别代表选中列、被选中项下标、被选中项的值
+         * @param onConfirm 点击确定的回调
+         *  values代表顺序返回的选中值数组
+         * @param onCancel 点击取消的回调
+         */
+		var pickerView1  = new PickerView({
+			selector: 'bindPicker1',
+			title: '请选择1',
+			cols:[
+                {
+                    currVal: 5,
+                    values: [1,2,3,4,5,6,7,8,9,0]
+                },
+                {
+                    currVal: 8,
+                    values: [1,2,3,4,5,6,7,8,9,0]
+                },
+                {
+                    values: [1,2,3,4,5,6,7,8,9,0]
+                },
+                {
+                    currVal: 6,
+                    values: [1,2,3,4,5,6,7,8,9,0]
+                },
+                {
+                    currVal: 3,
+                    values: [1,2,3,4,5,6,7,8,9,0]
+                }
+            ],
+            onConfirm: function(values) {
+                document.getElementById('bindPicker1').innerText = values;
+            }
+		});
+        var pickerView2  = new PickerView({
+            selector: 'bindPicker2',
+            title: '请选择2',
+            cols:[
+                {
+                    currVal: 2,
+                    values: [7,8,9,4,5,6,1,2,3,0]
+                },
+                {
+                    currVal: 4,
+                    values: [7,8,9,4,5,6,1,2,3,0]
+                },
+                {
+                    currVal: 9,
+                    values: [7,8,9,4,5,6,1,2,3,0]
+                }
+            ],
+            onConfirm: function(values) {
+                document.getElementById('bindPicker2').innerText = values;
+            }
+        });
+	</script>
+</body>
+</html>
+

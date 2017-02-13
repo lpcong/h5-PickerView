@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+    <title>多级联动</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <link rel="stylesheet" type="text/css" href="dist/css/pickerView.css" />
+    <style type="text/css">
+		#bindPicker{font-size: 16px;text-align: center;padding-top: 20px;}
+    </style>
+</head>
+<body>
+	<div id="bindPicker">点击请选择地区</div>
+	<script type="text/javascript" src="dist/js/pickerView-min.js"></script>
+	<script type="text/javascript">
+        /*
+         * @param selector 绑定出发选择器的元素id 必填
+         * @param title 选择器标题 必填
+         * @param cols 选择器内容 必填
+         * @param onOptionSelected 某列中某项被选中的回调函数
+         *  colIndex,selectedIndex,selectedValue分别代表选中列、被选中项下标、被选中项的值
+         * @param onConfirm 点击确定的回调
+         *  values代表顺序返回的选中值数组
+         * @param onCancel 点击取消的回调
+         */
+		var pickerView  = new PickerView({
+			selector: 'bindPicker',
+			title: '选择城市',
+			cols:[
+                {
+                    values: ['广东']
+                },
+                {
+                    currVal: '佛山',  //currVal是默认当前项，可选
+                    values: ['深圳','佛山']
+                },
+                {
+                    currVal: '三水',
+                    values: ['顺德','三水','高明','禅城','南海']
+                }
+            ],
+            onOptionSelected: function(colIndex, selectedIndex, selectedValue) {
+                // 在这里更新列以达到多级联动目的
+			    if(colIndex === 1) {
+			        switch(selectedIndex) {
+                        case 0:
+                            // 深圳
+                            pickerView.updateCol(colIndex+1,{
+                                currVal: '宝安',
+                                values: ['南山','宝安','福田','罗湖','龙岗','盐田']
+                            })
+                            break;
+                        case 1:
+                            // 佛山
+                            pickerView.updateCol(colIndex+1,{
+                                values: ['顺德','三水','高明','禅城','南海']
+                            })
+                            break;
+                    }
+                }
+                console.log(colIndex,selectedIndex,selectedValue);
+            },
+            onConfirm: function(values) {
+                document.getElementById('bindPicker').innerText = values;
+            },
+            onCancel: function() {
+                console.log('cancel');
+            }
+		});
+	</script>
+</body>
+</html>
+
