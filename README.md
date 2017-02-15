@@ -3,7 +3,7 @@
 
 ## 效果图：
 ##### 常用的多级联动选择：
-![](http://okzuu09cn.bkt.clouddn.com/1.gif)
+![](http://okzuu09cn.bkt.clouddn.com/4.gif)
 
 ##### 普通日期选择：
 ![](http://okzuu09cn.bkt.clouddn.com/2.gif)
