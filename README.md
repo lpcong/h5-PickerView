@@ -16,7 +16,7 @@
 ## 使用：
 在页面中引入**pickerView.css**和**pickerView.js**
 #### 初始化：
-```
+``` javascript
 var pickerView = new PickerView(opts);
 ```
 opts是可选的配置参数，具体如下：
@@ -29,7 +29,7 @@ opts是可选的配置参数，具体如下：
 
 ##### col
 col是选择器每一列的配置参数，具体格式如下：
-```
+``` javascript
 {
     cols:[
             {
@@ -65,7 +65,7 @@ col是选择器每一列的配置参数，具体格式如下：
 * colIndex 需要更新的列下标，从0开始计算
 * colContent 被替换的列的内容，格式可以参照上面的cols参数，例子如下：
 
-```
+``` javascript
 pickerView.updateCol(2,{
         currVal: '宝安',
         values: ['南山','宝安','福田','罗湖','龙岗','盐田']
