@@ -1,37 +1,44 @@
 /*
- * @author 梁沛聪
+ * @author andypliang
  * @email t-cong@163.com
  * @description 移动端多级联动选择器样式
  */
-._picker-mask{
+._picker-container{
 	position: fixed;
 	z-index: 9999;
 	top: 0;
 	left: 0;
 	bottom: 0;
 	right: 0;
-	background-color: rgba(0,0,0,0.5);
 	font-size: 0;
-	font-family: PingFangSC-Light,'helvetica neue','hiragino sans gb',arial,'microsoft yahei ui','microsoft yahei',simsun,sans-serif;
+	font-family: PingFangSC-Light, 'Helvetica Neue', sans-serif;
 	margin: 0;
 	padding: 0;
 	-webkit-user-select: none;
 	user-select: none;
 	visibility: visible;
-	opacity: 1;
-	-webkit-transition: all .3s .1s ease;
-	transition: all .3s .1s ease;
 }
-._picker-mask a{
+._picker-container a{
 	outline: none;
 	-webkit-tap-highlight-color:rgba(0,0,0,0);
+}
+._picker-mask {
+    position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition: all .3s ease 0s;
+    transition: all .3s ease 0s;
+    opacity: 1;
 }
 ._picker-wrapper{
 	position: absolute;
 	bottom: 0;
-	width: 100%;
-	-webkit-transition: all .4s ease;
-	transition: all .4s ease;
+    width: 100%;
+	-webkit-transition: all .3s ease;
+    transition: all .3s ease;
 }
 ._picker-head{
 	position: relative;
@@ -53,7 +60,7 @@
 ._picker-btn-cancel,
 ._picker-btn-confirm{
 	font-size: 16px;
-	color: #0c86ff;
+	color: #888;
 	text-decoration: none;
 	position: absolute;
 	left: 0;
@@ -62,6 +69,7 @@
 	width: 16%;
 }
 ._picker-btn-confirm{
+    color: #0c86ff;
 	left: initial;
 	right: 0;
 }
@@ -84,7 +92,7 @@
     bottom: 120px;
     top: 0;
     pointer-events: none;
-    background-color: rgba(255,255,255,.7);
+    background: linear-gradient(180deg, hsla(0, 0%, 100%, .9), hsla(0, 0%, 100%, .6));
     border-bottom: solid 1px #ddd;
     z-index: 2;
 }
@@ -96,7 +104,7 @@
     bottom: 0;
     top: 130px;
     pointer-events: none;
-    background-color: rgba(255,255,255,.7);
+    background: linear-gradient(0deg, hsla(0, 0%, 100%, .9), hsla(0, 0%, 100%, .6));
     border-top: solid 1px #ddd;
     z-index: 2;
 }
@@ -117,9 +125,11 @@
 }
 ._picker-data-list{
 	padding: 0;
-	margin: 10px 0;
-    -webkit-transition: transform .3s ease;
-    transition: transform .3s ease;
+    margin: 10px 0;
+}
+._picker-data-list.animate {
+    -webkit-transition: transform .3s ease 0s;
+    transition: transform .3s ease 0s;
 }
 ._picker-data-list>li{
 	list-style: none;
@@ -128,12 +138,13 @@
 }
 
 /* 隐藏 */
-._picker-mask.hide{
-	opacity: 0;
+._picker-container.hide{
     pointer-events: none;
-	/*visibility: hidden;*/
+    visibility: hidden;
 }
-._picker-mask.hide ._picker-wrapper{
-	-webkit-transform: translate(0,20px);
-	transform: translate(0,20px);
+._picker-container.hide ._picker-mask{
+    opacity: 0;
+}
+._picker-container.hide ._picker-wrapper{
+    bottom: -100%;
 }

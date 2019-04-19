@@ -6,40 +6,35 @@
     <title>选择出生日期</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="stylesheet" type="text/css" href="css/pickerView.css" />
     <style type="text/css">
 		#bindPicker{font-size: 16px;text-align: center;padding-top: 20px;}
     </style>
 </head>
 <body>
 	<div id="bindPicker">点击选择出生日期</div>
-	<script type="text/javascript" src="js/pickerView.js"></script>
+	<script type="text/javascript" src="../dest/js/pickerView.style.min.js"></script>
 	<script type="text/javascript">
         /*
          * @param selector 绑定出发选择器的元素id
          * @param title 选择器标题
          * @param cols 选择器内容
-         * @param onOptionSelected 某列中某项被选中的回调函数
+         * @param type='date' 日期选择器
+         * @param onSelected 某列中某项被选中的回调函数
          *  colIndex,selectedIndex,selectedValue分别代表选中列、被选中项下标、被选中项的值
          * @param onConfirm 点击确定的回调
          *  values代表顺序返回的选中值数组
          * @param onCancel 点击取消的回调
          */
 		var pickerView  = new PickerView({
-			selector: 'bindPicker',
+            selector: 'bindPicker',
+            type: 'date',
+            start: 2000,
+            end: 2019,
+            curYear: 2018,
+            curMonth: 6,
+            curDay: 1, 
 			title: '选择出生日期',
-			cols:[
-                {
-                    values: ['1990','1991','1992','1993','1994','1995','1996','1997','1998','1999','2000','2001']
-                },
-                {
-                    values: ['1','2','3','4','5','6','7','8','9','10','11','12']
-                },
-                {
-                    values: ['1','2','3','4','5','6','7','8','9','10','11','12','13','14','15','16','17','18','19','20','21','22','23','24','25','26','27','28','29','30','31']
-                }
-            ],
-            onOptionSelected: function(colIndex, selectedIndex, selectedValue) {
+            onSelected: function(colIndex, selectedIndex, selectedValue) {
                 console.log(colIndex,selectedIndex,selectedValue);
             },
             onConfirm: function(values) {
