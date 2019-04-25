@@ -53,13 +53,18 @@
 			this.col_list = this.container.querySelectorAll('._picker-data-list');
 			this.btnCancel = this.container.querySelector('._picker-btn-cancel');
 			this.btnConfirm = this.container.querySelector('._picker-btn-confirm');
-			this.selector = document.getElementById(this.pickerOpts.selector);
+			if (this.pickerOpts.selector) {
+                this.selector = document.getElementById(this.pickerOpts.selector);
+            }
 
 			// 绑定选择器的事件
 			this.bind();
 	}
 
 	PickerView.prototype = {
+        show: function() {
+            this.container.className = '_picker-container ' + this.prefix;
+        },
 		bind: function() {
 			var _this = this;
             var hidePicker = function() {
@@ -87,8 +92,8 @@
 			},false);
 
 			// 唤起选择器事件
-			this.selector.addEventListener('touchend', function() {
-	            _this.container.className = '_picker-container ' + _this.prefix;
+			this.selector && this.selector.addEventListener('touchend', function() {
+	            _this.show();
 			},false);
 
             // 绑定选项滑动事件
@@ -153,7 +158,7 @@
             if (!opts.type || opts.type !== 'date') return;
             var start = opts.start || 1990;
             var end = opts.end || new Date.getFullYear();
-            var years = [], months = [], days = [];
+            var years = [], months = [];
             var curYear = opts.curYear || start, curMonth = opts.curMonth || 1;
             for (var i = start; i <= end; i++) {
                 years.push(i + '年');
