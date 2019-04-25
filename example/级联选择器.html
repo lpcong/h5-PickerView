@@ -13,10 +13,10 @@
 <body>
 	<div id="bindPicker">点击请选择地区</div>
 	<script type="text/javascript" src="../dest/js/pickerView.style.min.js"></script>
-	<script type="text/javascript">
+    <script type="text/javascript">
         /*
-         * @param selector 绑定出发选择器的元素id 必填
-         * @param title 选择器标题 必填
+         * @param selector 绑定触发选择器的元素id 选填
+         * @param title 选择器标题 选填
          * @param cols 选择器内容 必填
          * @param onSelected 某列中某项被选中的回调函数
          *  colIndex,selectedIndex,selectedValue分别代表选中列、被选中项下标、被选中项的值
@@ -25,7 +25,7 @@
          * @param onCancel 点击取消的回调
          */
 		var pickerView  = new PickerView({
-			selector: 'bindPicker',
+            selector: 'bindPicker',
 			title: '选择城市',
 			cols:[
                 {
@@ -67,7 +67,7 @@
             onCancel: function() {
                 console.log('cancel');
             }
-		});
+        });
 	</script>
 </body>
 </html>
